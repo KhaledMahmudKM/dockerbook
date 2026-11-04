@@ -1,0 +1,21 @@
+[
+  { "separator": "Part I · Foundations" },
+  "01-introduction.md",
+  "02-under-the-hood.md",
+  "03-installation.md",
+  "04-images-and-containers.md",
+  "05-running-containers.md",
+  "06-working-with-images.md",
+  { "separator": "Part II · Building & Running" },
+  "07-dockerfile.md",
+  "08-volumes.md",
+  "09-networking.md",
+  "10-compose.md",
+  "11-registries.md",
+  { "separator": "Part III · In Practice" },
+  "12-best-practices.md",
+  "13-troubleshooting.md",
+  { "separator": "Appendix" },
+  "14-command-reference.md",
+  "glossary.md"
+]

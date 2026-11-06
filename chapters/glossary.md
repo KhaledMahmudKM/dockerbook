@@ -13,7 +13,7 @@ The image named in a Dockerfile's `FROM` line, which later instructions build up
 Storage that maps a specific host directory into a container; the container sees the real host files. Good for development.
 
 **Bridge network**
-The default Docker network type — a private network on a single host. A *user-defined* bridge also gives name-based DNS between containers.
+The default Docker network type, a private network on a single host. A *user-defined* bridge also gives name-based DNS between containers.
 
 **BuildKit**
 Docker's modern build engine (default since Engine 23.0): parallel stages, better caching, smarter context handling.
@@ -45,7 +45,7 @@ The background service that builds images and runs containers. The `docker` CLI 
 A content hash (`sha256:…`) that identifies exact image bytes. Unlike a tag, a digest never moves.
 
 **Distroless**
-A minimal base image containing only an app and its runtime — no shell or package manager — reducing size and attack surface.
+A minimal base image containing only an app and its runtime, no shell or package manager, reducing size and attack surface.
 
 **Dockerfile**
 A text recipe of instructions that `docker build` executes to produce an image.
@@ -61,14 +61,14 @@ A file listing paths to exclude from the build context (like `.gitignore`).
 The fixed executable a container runs at start; `CMD` supplies its default arguments.
 
 **EXPOSE**
-A Dockerfile instruction that *documents* a listening port. It does not publish the port — only `-p` does.
+A Dockerfile instruction that *documents* a listening port. It does not publish the port; only `-p` does.
 
 ---
 
 ## I
 
 **Image**
-A read-only template — a packaged, layered filesystem plus metadata — from which containers are created.
+A read-only template (a packaged, layered filesystem plus metadata) from which containers are created.
 
 **Image reference**
 An image's name: `registry/namespace/repo:tag` (e.g. `docker.io/library/nginx:latest`).
@@ -87,7 +87,7 @@ Early userspace tooling (c. 2008) that combined namespaces and cgroups. Docker o
 Docker's own container library (libcontainer), later donated and standardized as **runc**, the OCI reference runtime that sets up namespaces and cgroups.
 
 **libvirt**
-A toolkit and API for managing *machine* virtualization (KVM/QEMU and others) — the VM world, contrasted with container process isolation.
+A toolkit and API for managing *machine* virtualization (KVM/QEMU and others), the VM world, contrasted with container process isolation.
 
 ---
 
@@ -158,14 +158,14 @@ A mount held in RAM that disappears when the container stops; used for secrets o
 ## U
 
 **Union filesystem**
-A filesystem that overlays multiple directories (layers) into one view — the basis of Docker's layered images.
+A filesystem that overlays multiple directories (layers) into one view, the basis of Docker's layered images.
 
 ---
 
 ## V
 
 **Volume**
-Docker-managed storage that persists beyond a container's life — the recommended way to keep application data.
+Docker-managed storage that persists beyond a container's life, the recommended way to keep application data.
 
 ---
 

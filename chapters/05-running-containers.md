@@ -11,7 +11,7 @@ This chapter is the hands-on core: starting containers with the options you will
 | Option | Meaning |
 |---|---|
 | `-d`, `--detach` | Run in the background and print the container ID |
-| `-it` | Interactive + TTY — for a shell you type into |
+| `-it` | Interactive + TTY, for a shell you type into |
 | `--name NAME` | Give the container a friendly name |
 | `-p HOST:CONTAINER` | Publish a container port to the host |
 | `-e KEY=VALUE` | Set an environment variable |
@@ -55,11 +55,11 @@ A container moves through a small set of states. Knowing them explains what each
 .d5 .state{ fill:var(--bg-soft); stroke:var(--border); stroke-width:1.5; }
 .d5 .run{ fill:var(--panel); stroke:var(--accent); stroke-width:2; }
 .d5 .gone{ fill:var(--panel-hover); stroke:var(--border); stroke-width:1.5; stroke-dasharray:5 4; }
-.d5 .h{ fill:var(--text); font-size:13px; font-weight:700; }
-.d5 .s{ fill:var(--text-dim); font-size:11px; }
+.d5 .h{ fill:var(--text); font-size:15px; font-weight:700; }
+.d5 .s{ fill:var(--text-dim); font-size:13px; }
 .d5 .ar{ stroke:var(--text-dim); stroke-width:1.6; fill:none; marker-end:url(#d5a); }
-.d5 .lbl{ fill:var(--accent); font-size:11px; font-weight:600; }
-.d5 .cap{ fill:var(--text-faint); font-size:12px; }
+.d5 .lbl{ fill:var(--accent); font-size:13px; font-weight:600; }
+.d5 .cap{ fill:var(--text-faint); font-size:12.5px; }
 </style>
 <defs><marker id="d5a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--text-dim)"/></marker></defs>
 <g class="d5">
@@ -92,13 +92,13 @@ docker rm web          # remove a stopped container
 docker rm -f web       # force-remove even if running
 ```
 
-`stop` is graceful — it signals the process to shut down and waits before killing it. `kill` is immediate. A **stopped** container is not gone: it keeps its writable layer and still shows in `docker ps -a`, so you can `start` it again or inspect it. **Removing** it is what discards that writable layer.
+`stop` is graceful: it signals the process to shut down and waits before killing it. `kill` is immediate. A **stopped** container is not gone: it keeps its writable layer and still shows in `docker ps -a`, so you can `start` it again or inspect it. **Removing** it is what discards that writable layer.
 
 ---
 
 ## Getting inside a running container
 
-To run a command — often a shell — inside a container that is already running, use `exec`:
+To run a command, often a shell, inside a container that is already running, use `exec`:
 
 ```bash
 docker exec -it web bash      # interactive shell in 'web'
@@ -121,7 +121,7 @@ docker stats               # live CPU/memory/IO per container
 docker top web             # processes running inside the container
 ```
 
-`docker logs` is usually the first stop when something misbehaves — containers are expected to log to stdout/stderr, and that is what you see here. `docker inspect` is the deep reference when you need a container's exact IP, mounts, or environment.
+`docker logs` is usually the first stop when something misbehaves. Containers are expected to log to stdout/stderr, and that is what you see here. `docker inspect` is the deep reference when you need a container's exact IP, mounts, or environment.
 
 ---
 
@@ -135,7 +135,7 @@ docker exec -it web bash                     # look inside
 docker stop web && docker rm web             # stop and clean up
 ```
 
-That loop — run, use, inspect, remove — is the rhythm of working with containers.
+That loop (run, use, inspect, remove) is the rhythm of working with containers.
 
 ---
 

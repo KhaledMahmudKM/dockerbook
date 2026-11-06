@@ -1,6 +1,6 @@
 # Troubleshooting and Cleanup
 
-Things go wrong: a container exits immediately, a port is taken, a build fails, the disk fills up. This chapter is a practical field guide — the commands to diagnose common problems and the tools to reclaim space safely.
+Things go wrong: a container exits immediately, a port is taken, a build fails, the disk fills up. This chapter is a practical field guide: the commands to diagnose common problems and the tools to reclaim space safely.
 
 ---
 
@@ -14,7 +14,7 @@ docker logs <name>     # what did it print before it stopped?
 docker inspect <name>  # full config: ports, mounts, networks, env, exit code
 ```
 
-Start here every time. `docker ps -a` shows the **status** — `Exited (1) 10 seconds ago` tells you it crashed; `Exited (0)` means it finished normally. `docker logs` almost always shows the actual error.
+Start here every time. `docker ps -a` shows the **status**: `Exited (1) 10 seconds ago` tells you it crashed; `Exited (0)` means it finished normally. `docker logs` almost always shows the actual error.
 
 ---
 
@@ -40,7 +40,7 @@ docker run -it --entrypoint sh myapp:1.0    # get a shell instead of the app
 Error: ... Bind for 0.0.0.0:8080 failed: port is already allocated
 ```
 
-Something already uses that host port — often a container you forgot.
+Something already uses that host port, often a container you forgot.
 
 ```bash
 docker ps                         # find what's publishing 8080
@@ -65,11 +65,11 @@ Error response from daemon: pull access denied / manifest unknown
 ## Debugging inside a container
 
 ```bash
-docker exec -it <name> sh        # or bash — look around a running container
+docker exec -it <name> sh        # or bash, look around a running container
 docker exec <name> env           # check environment variables
 docker exec <name> cat /etc/hosts
 docker logs -f <name>            # stream logs while you reproduce the issue
-docker stats                     # live CPU/memory — is it being OOM-killed?
+docker stats                     # live CPU/memory; is it being OOM-killed?
 ```
 
 If a container is being killed for using too much memory, `docker inspect` shows `OOMKilled: true`. Raise the limit or fix the leak.
@@ -78,7 +78,7 @@ If a container is being killed for using too much memory, `docker inspect` shows
 
 ## Setting resource limits
 
-To stop a container from starving the host (and to reproduce production limits), cap it — the cgroups from Chapter 2 at work:
+To stop a container from starving the host (and to reproduce production limits), cap it, the cgroups from Chapter 2 at work:
 
 ```bash
 docker run --memory=512m --cpus=1.5 myapp:1.0
@@ -127,11 +127,11 @@ On Docker Desktop, restart Docker Desktop and check its dashboard. "Cannot conne
 
 ## A troubleshooting flow
 
-1. `docker ps -a` — running, or exited with what code?
-2. `docker logs <name>` — what did it say?
-3. `docker inspect <name>` — ports, mounts, env, `OOMKilled`?
-4. `docker exec -it <name> sh` — look inside (if it is running).
-5. Reproduce with changes — fix the Dockerfile/command/config and rebuild.
+1. `docker ps -a`: running, or exited with what code?
+2. `docker logs <name>`: what did it say?
+3. `docker inspect <name>`: ports, mounts, env, `OOMKilled`?
+4. `docker exec -it <name> sh`: look inside (if it is running).
+5. Reproduce with changes: fix the Dockerfile/command/config and rebuild.
 6. `docker system df` → targeted `prune` if space is the problem.
 
 ---
@@ -139,7 +139,7 @@ On Docker Desktop, restart Docker Desktop and check its dashboard. "Cannot conne
 ## Key Takeaways
 
 - Start every diagnosis with `docker ps -a`, `docker logs`, and `docker inspect`.
-- A container that exits immediately usually finished its process, has a wrong command, or crashed — `docker logs` tells you which.
+- A container that exits immediately usually finished its process, has a wrong command, or crashed. `docker logs` tells you which.
 - "Port already allocated" and image-pull errors have quick, specific fixes.
 - Cap containers with `--memory` and `--cpus`; check `OOMKilled` when memory is suspect.
-- Use `docker system df` then **targeted** `prune` commands — the `-a --volumes` forms delete images and data, so use them knowingly.
+- Use `docker system df` then **targeted** `prune` commands. The `-a --volumes` forms delete images and data, so use them knowingly.

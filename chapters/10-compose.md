@@ -1,6 +1,6 @@
 # Docker Compose
 
-Real applications are rarely one container. A web app needs a database; maybe a cache, a queue, a worker. Starting each with a long `docker run` command — in the right order, on the right network, with the right volumes — gets tedious and error-prone. **Docker Compose** replaces all of that with a single file and a single command.
+Real applications are rarely one container. A web app needs a database; maybe a cache, a queue, a worker. Starting each with a long `docker run` command (in the right order, on the right network, with the right volumes) gets tedious and error-prone. **Docker Compose** replaces all of that with a single file and a single command.
 
 ---
 
@@ -51,35 +51,34 @@ Start it:
 docker compose up -d
 ```
 
-Compose creates a network, starts `db` and `api`, and — crucially — the `api` reaches the database at the hostname **`db`**, because Compose puts both services on the same network with name resolution (Chapter 9). That is why the `DATABASE_URL` says `@db:5432`.
+Compose creates a network, starts `db` and `api`, and, crucially, the `api` reaches the database at the hostname **`db`**, because Compose puts both services on the same network with name resolution (Chapter 9). That is why the `DATABASE_URL` says `@db:5432`.
 
 <figure class="diagram">
-<svg viewBox="0 0 720 280" style="width:100%;height:auto;max-width:720px" role="img" aria-label="One compose file defines several services that Compose starts together on a shared network, with a published port to the host and a named volume for the database." xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 720 258" style="width:100%;height:auto;max-width:720px" role="img" aria-label="One compose file defines several services that Compose starts together on a shared network, with a published port to the host and a named volume for the database." xmlns="http://www.w3.org/2000/svg">
 <style>
 .d10{ font-family:var(--sans),sans-serif; }
 .d10 .file{ fill:var(--panel); stroke:var(--accent); stroke-width:2; }
 .d10 .net{ fill:var(--bg-soft); stroke:var(--accent); stroke-width:1.8; }
 .d10 .svc{ fill:var(--panel); stroke:var(--border); stroke-width:1.5; }
 .d10 .vol{ fill:var(--panel-hover); stroke:var(--border); stroke-width:1.5; }
-.d10 .h{ fill:var(--text); font-size:13px; font-weight:700; }
-.d10 .s{ fill:var(--text-dim); font-size:11.5px; }
-.d10 .mono{ font-family:var(--mono),monospace; fill:var(--text-dim); font-size:11px; }
-.d10 .cap{ fill:var(--text-faint); font-size:11.5px; }
+.d10 .h{ fill:var(--text); font-size:15px; font-weight:700; }
+.d10 .s{ fill:var(--text-dim); font-size:13px; }
+.d10 .mono{ font-family:var(--mono),monospace; fill:var(--text-dim); font-size:12.5px; }
+.d10 .cap{ fill:var(--text-faint); font-size:12.5px; }
 .d10 .ar{ stroke:var(--text-dim); stroke-width:1.6; fill:none; marker-end:url(#d10a); }
 </style>
 <defs><marker id="d10a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--text-dim)"/></marker></defs>
 <g class="d10">
-<rect x="30" y="90" width="120" height="70" rx="8" class="file"/><text x="90" y="118" text-anchor="middle" class="h">compose</text><text x="90" y="136" text-anchor="middle" class="h">.yaml</text><text x="90" y="153" text-anchor="middle" class="s">one file</text>
-<path class="ar" d="M150 125 L210 125"/><text x="180" y="116" text-anchor="middle" class="mono">up</text>
-<rect x="240" y="55" width="300" height="150" rx="10" class="net"/><text x="390" y="47" text-anchor="middle" class="h">app network (auto-created)</text>
-<rect x="265" y="100" width="110" height="60" rx="8" class="svc"/><text x="320" y="126" text-anchor="middle" class="h">api</text><text x="320" y="146" text-anchor="middle" class="s">built from .</text>
-<rect x="410" y="100" width="110" height="60" rx="8" class="svc"/><text x="465" y="126" text-anchor="middle" class="h">db</text><text x="465" y="146" text-anchor="middle" class="s">postgres:16</text>
-<path class="ar" d="M375 130 L410 130"/><text x="392" y="94" text-anchor="middle" class="mono">"db"</text>
-<rect x="600" y="100" width="100" height="60" rx="8" class="vol"/><text x="650" y="126" text-anchor="middle" class="h">dbdata</text><text x="650" y="146" text-anchor="middle" class="s">volume</text>
-<path class="ar" d="M520 130 L600 130"/>
-<text x="320" y="235" text-anchor="middle" class="mono">host :8000 → api:8000</text>
-<path class="ar" d="M320 205 L320 225"/>
-<text x="390" y="266" text-anchor="middle" class="cap">Compose starts all services on one network (name resolution), publishes ports, and creates named volumes.</text>
+<rect x="20" y="70" width="140" height="60" rx="8" class="file"/><text x="90" y="96" text-anchor="middle" class="h">compose.yaml</text><text x="90" y="116" text-anchor="middle" class="s">one file</text>
+<path class="ar" d="M160 100 L228 100"/><text x="194" y="91" text-anchor="middle" class="mono">up</text>
+<rect x="230" y="34" width="300" height="150" rx="10" class="net"/><text x="380" y="26" text-anchor="middle" class="h">app network (auto-created)</text>
+<rect x="255" y="80" width="110" height="60" rx="8" class="svc"/><text x="310" y="106" text-anchor="middle" class="h">api</text><text x="310" y="126" text-anchor="middle" class="s">built from .</text>
+<rect x="395" y="80" width="110" height="60" rx="8" class="svc"/><text x="450" y="106" text-anchor="middle" class="h">db</text><text x="450" y="126" text-anchor="middle" class="s">postgres:16</text>
+<path class="ar" d="M365 110 L395 110"/><text x="380" y="70" text-anchor="middle" class="mono">"db"</text>
+<rect x="590" y="80" width="110" height="60" rx="8" class="vol"/><text x="645" y="106" text-anchor="middle" class="h">dbdata</text><text x="645" y="126" text-anchor="middle" class="s">volume</text>
+<path class="ar" d="M505 110 L590 110"/>
+<path class="ar" d="M310 184 L310 210"/><text x="322" y="204" class="mono">host :8000 → api:8000</text>
+<text x="360" y="244" text-anchor="middle" class="cap">Compose starts all services on one network (name resolution), publishes ports, and creates named volumes.</text>
 </g>
 </svg>
 </figure>
@@ -96,12 +95,12 @@ Compose creates a network, starts `db` and `api`, and — crucially — the `api
 | `ports` | Publish ports (`"host:container"`) |
 | `environment` | Environment variables for the service |
 | `volumes` | Mount volumes or bind mounts |
-| `depends_on` | Start order (not readiness — see below) |
+| `depends_on` | Start order (not readiness, see below) |
 | `networks` | Attach services to specific networks |
 
 Top-level `volumes:` and `networks:` declare named volumes and networks that Compose creates for you.
 
-> **The `version:` field is obsolete.** Old Compose files began with `version: "3"`. Modern Compose ignores it and will warn if present — just omit it and start the file with `services:`.
+> **The `version:` field is obsolete.** Old Compose files began with `version: "3"`. Modern Compose ignores it and will warn if present. Just omit it and start the file with `services:`.
 
 ---
 
@@ -131,9 +130,9 @@ Run these from the folder containing `compose.yaml`. The project is named after 
 ## Why Compose matters
 
 - **One command** brings up or tears down the whole stack.
-- **Reproducible** — the file is the definitive description; commit it to Git.
-- **Readable** — the architecture of your app is visible at a glance.
-- **Shareable** — a teammate runs `docker compose up` and has the identical environment.
+- **Reproducible**: the file is the definitive description; commit it to Git.
+- **Readable**: the architecture of your app is visible at a glance.
+- **Shareable**: a teammate runs `docker compose up` and has the identical environment.
 
 For a single-host app and for local development, Compose is the tool you will reach for constantly. (Multi-host orchestration is Kubernetes' domain, beyond this book.)
 
@@ -145,4 +144,4 @@ For a single-host app and for local development, Compose is the tool you will re
 - `docker compose up -d` / `down` start and stop the whole stack; services reach each other by name on the auto-created network.
 - Key keys: `services`, `image`/`build`, `ports`, `environment`, `volumes`, `depends_on`.
 - Omit the obsolete `version:` field; start the file with `services:`.
-- `depends_on` sets start order, not readiness — use healthchecks or retry logic for that.
+- `depends_on` sets start order, not readiness: use healthchecks or retry logic for that.

@@ -51,7 +51,7 @@ docker version      # client and daemon versions
 docker info         # daemon details: storage driver, cgroup version, etc.
 ```
 
-`docker info` is worth a look now — it reports your **storage driver** (or containerd image store) and **cgroup version**, the very mechanisms from Chapter 2.
+`docker info` is worth a look now. It reports your **storage driver** (or containerd image store) and **cgroup version**, the very mechanisms from Chapter 2.
 
 ---
 
@@ -65,7 +65,7 @@ newgrp docker          # or log out and back in
 docker run hello-world # now works without sudo
 ```
 
-> **Security note.** The `docker` group grants root-equivalent access to the host — a user in it can start a container that mounts the whole filesystem. That is fine on a personal machine; on shared systems, be deliberate, or look into **rootless mode**, which runs the daemon as an unprivileged user.
+> **Security note.** The `docker` group grants root-equivalent access to the host. A user in it can start a container that mounts the whole filesystem. That is fine on a personal machine; on shared systems, be deliberate, or look into **rootless mode**, which runs the daemon as an unprivileged user.
 
 This book shows `sudo` where Linux commonly needs it. On Docker Desktop you never need `sudo`.
 
@@ -96,5 +96,5 @@ It is a convenient way to see idiomatic files for your language. We write these 
 - Windows and macOS use **Docker Desktop** (which runs a hidden Linux VM); Linux uses **Docker Engine** natively.
 - Install Engine with the convenience script for labs, or the apt/yum repo for lasting setups.
 - Verify with `docker run hello-world`; inspect the setup with `docker version` and `docker info`.
-- On Linux, add your user to the `docker` group to skip `sudo` — understanding it grants root-equivalent access.
+- On Linux, add your user to the `docker` group to skip `sudo`, understanding that it grants root-equivalent access.
 - `docker init` scaffolds starter Docker files for a project.

@@ -4,7 +4,7 @@
   "year": "2026",
   "copyright": "© 2026 Khaled Mahmud",
   "version": "1.0",
-  "description": "A practical, hands-on guide to Docker — containers, images, Dockerfiles, volumes, networking, and Compose — with diagrams throughout.",
+  "description": "A practical, hands-on guide to Docker (containers, images, Dockerfiles, volumes, networking, and Compose) with diagrams throughout.",
   "homeUrl": "https://khaledmahmudkm.github.io/stacks/",
   "logo": "logo.svg",
   "math": false,

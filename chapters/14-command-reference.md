@@ -6,7 +6,7 @@ A grouped quick-reference to the Docker commands used in this book. Each table c
 
 ---
 
-## Running containers — the key `docker run` flags
+## Running containers: the key `docker run` flags
 
 ```
 docker run [FLAGS] IMAGE [COMMAND]
@@ -172,4 +172,4 @@ Mount forms: `-v VOL:/path` (volume) · `-v "$(pwd)":/path` (bind) · `--tmpfs /
 | `docker builder prune` | Remove build cache |
 | `docker events` | Stream real-time daemon events |
 
-> The `prune` family **deletes**. The plain `docker system prune` is safe for routine cleanup; `-a --volumes` removes images you will re-pull and volumes whose data you may want — check `docker system df` and `docker volume ls` first.
+> The `prune` family **deletes**. The plain `docker system prune` is safe for routine cleanup; `-a --volumes` removes images you will re-pull and volumes whose data you may want. Check `docker system df` and `docker volume ls` first.

@@ -10,5 +10,7 @@
   "math": false,
   "highlightLanguages": [
     "dockerfile"
-  ]
+  ],
+  "palette": "lagoon",
+  "_comment": "palette options are: moss, harbor, lagoon, sepia, clay"
 }

@@ -146,3 +146,63 @@ That loop (run, use, inspect, remove) is the rhythm of working with containers.
 - Containers move through **created → running → (paused) → stopped → removed**; a stopped container still exists until you `rm` it.
 - `docker exec -it` runs a shell in a running container; `docker logs` shows its output.
 - Changes made inside a container are lost on removal unless captured in an image or a volume.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#running-containers).
+
+**1. Which option runs a container in the background?**
+
+- A. -d
+- B. -it
+- C. --rm
+- D. -p
+
+**2. What does -p 8080:80 do?**
+
+- A. Maps container port 8080 to host port 80
+- B. Opens 80 ports
+- C. Maps host port 8080 to the container's port 80
+- D. Sets a process limit
+
+**3. What does --rm do?**
+
+- A. Removes the image
+- B. Deletes the container automatically when it exits
+- C. Restarts the container
+- D. Removes volumes
+
+**4. Which command lists stopped containers as well as running ones?**
+
+- A. docker ps
+- B. docker images
+- C. docker logs
+- D. docker ps -a
+
+**5. How does docker stop differ from docker kill?**
+
+- A. They are the same
+- B. stop signals the process to shut down and waits; kill ends it immediately
+- C. kill removes the container
+- D. stop deletes the writable layer
+
+**6. Which command runs a shell inside a container that is already running?**
+
+- A. docker run -it NAME bash
+- B. docker attach NAME
+- C. docker start NAME
+- D. docker exec -it NAME bash
+
+**7. Where should a containerized application write its logs so docker logs can show them?**
+
+- A. To stdout and stderr
+- B. To a file in /var/log
+- C. To a database
+- D. To the image
+
+**8. Which restart policy keeps a container running unless you stopped it yourself?**
+
+- A. no
+- B. on-failure
+- C. unless-stopped
+- D. never

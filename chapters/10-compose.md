@@ -145,3 +145,63 @@ For a single-host app and for local development, Compose is the tool you will re
 - Key keys: `services`, `image`/`build`, `ports`, `environment`, `volumes`, `depends_on`.
 - Omit the obsolete `version:` field; start the file with `services:`.
 - `depends_on` sets start order, not readiness: use healthchecks or retry logic for that.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#docker-compose).
+
+**1. What does Docker Compose describe in compose.yaml?**
+
+- A. One container only
+- B. A Kubernetes cluster
+- C. A Dockerfile
+- D. A multi-container application, managed as one unit
+
+**2. How is Compose run in modern Docker?**
+
+- A. docker-compose only
+- B. As the docker compose subcommand
+- C. As a separate daemon
+- D. Through Docker Hub
+
+**3. In the example, why does DATABASE_URL use @db:5432?**
+
+- A. db is a reserved word
+- B. Port 5432 is named db
+- C. It is a placeholder
+- D. Compose puts the services on one network with name resolution, and db is the service name
+
+**4. Which key builds a service's image from a Dockerfile?**
+
+- A. build
+- B. image
+- C. ports
+- D. volumes
+
+**5. What should you do with the version: field in a new compose file?**
+
+- A. Set it to "3"
+- B. Set it to the Docker version
+- C. Omit it; modern Compose ignores it and warns
+- D. Put it at the end
+
+**6. What does depends_on guarantee?**
+
+- A. That the dependency is ready to accept connections
+- B. That both services use the same image
+- C. Automatic retries
+- D. Start order only, not readiness
+
+**7. How does Compose name a project?**
+
+- A. Randomly
+- B. After the folder containing compose.yaml
+- C. After the first service
+- D. After the image
+
+**8. Which command starts the whole stack in the background?**
+
+- A. docker compose build
+- B. docker compose ps
+- C. docker compose up -d
+- D. docker compose down

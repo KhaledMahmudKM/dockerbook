@@ -117,3 +117,63 @@ docker volume prune              # remove volumes not used by any container
 - **Bind mounts** map a host directory in, ideal for live source code during development.
 - **tmpfs** mounts live in RAM for secrets or scratch and vanish with the container.
 - Volumes outlive their containers and are removed only explicitly. `docker volume prune` deletes unused ones, so check first.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#data-and-volumes).
+
+**1. Why do containers need volumes for durable data?**
+
+- A. Volumes are faster than RAM
+- B. A container's writable layer is lost when the container is removed
+- C. Images cannot store files
+- D. Docker forbids writing files
+
+**2. Which storage type is the recommended default for application data, such as a database?**
+
+- A. Bind mount
+- B. tmpfs mount
+- C. Volume
+- D. The writable layer
+
+**3. When is a bind mount the right choice?**
+
+- A. During development, so the container sees source code edits live
+- B. For production databases
+- C. For secrets
+- D. For images
+
+**4. How can you tell -v $(pwd):/app is a bind mount and not a named volume?**
+
+- A. The left side is a host path, not a name
+- B. It uses --mount
+- C. It ends in /app
+- D. It has no colon
+
+**5. Where does a tmpfs mount store data?**
+
+- A. On the host disk
+- B. In Docker Hub
+- C. In RAM only, gone when the container stops
+- D. In the image
+
+**6. Why is --mount often preferred over -v in scripts and documentation?**
+
+- A. It is faster
+- B. It is explicit: each part is named
+- C. -v is deprecated
+- D. Only --mount supports volumes
+
+**7. What happens to a volume when you remove the container that used it?**
+
+- A. It is deleted too
+- B. It becomes a bind mount
+- C. It is moved into the image
+- D. It remains, by design, so you do not lose data by accident
+
+**8. Why be careful with docker volume prune?**
+
+- A. It is slow
+- B. It deletes volumes no container references, which may be data you meant to keep
+- C. It deletes images
+- D. It stops all containers

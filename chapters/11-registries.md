@@ -123,3 +123,63 @@ Images you pull are code you will run. Reduce risk by preferring **official** an
 - Use **access tokens** (not your password) for logins, and publish meaningful version tags.
 - Repositories can be public or private; the same `push`/`pull` works for GHCR, cloud registries, or a self-hosted `registry:2`.
 - Treat pulled images as code: prefer official/verified images, pin versions, and scan for vulnerabilities.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#registries-and-image-distribution).
+
+**1. Which three steps publish an image to Docker Hub?**
+
+- A. Build, tag with your repository name, push
+- B. Pull, run, commit
+- C. Save, zip, upload
+- D. Init, compose, deploy
+
+**2. Why must the pushed image name include your namespace, as in yourname/myapp?**
+
+- A. For speed
+- B. Docker requires uppercase
+- C. So the registry knows which account the repository belongs to
+- D. To make it private
+
+**3. What should scripts and CI use for docker login?**
+
+- A. Your account password
+- B. No credentials
+- C. A shared team password
+- D. An access token, which can be scoped and revoked
+
+**4. Why publish tags such as 1.4.2, 1.4 and 1 for one build?**
+
+- A. To use more storage
+- B. So consumers choose how precise to be: pin exactly or follow compatible updates
+- C. Docker Hub requires three tags
+- D. To hide the latest version
+
+**5. What do you need to pull from a private repository?**
+
+- A. Nothing extra
+- B. A VPN
+- C. docker login with authorized credentials
+- D. The image digest only
+
+**6. How do you push to a registry other than Docker Hub, such as GitHub Container Registry?**
+
+- A. Log in to it, tag with its hostname (ghcr.io/...), then push
+- B. Use a different tool
+- C. Convert the image first
+- D. It is not possible
+
+**7. What can you use to host your own private registry?**
+
+- A. Docker's own registry image
+- B. Docker Desktop's GUI
+- C. Docker Compose only
+- D. A volume
+
+**8. Which tool reports known vulnerabilities (CVEs) in an image's layers?**
+
+- A. docker history
+- B. docker tag
+- C. docker scout
+- D. docker login

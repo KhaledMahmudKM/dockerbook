@@ -113,3 +113,63 @@ You type a command; the CLI sends it to the daemon; the daemon makes it happen. 
 - Containers are far smaller and faster to start than VMs, and the two are often combined.
 - Installing Docker gives you a **CLI**, a **daemon**, and registry access.
 - Docker's portability, speed, and ecosystem made containers the default way to ship software.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#introduction-to-docker).
+
+**1. What does a container bundle together?**
+
+- A. An application with its libraries, dependencies and configuration
+- B. Only the application's source code
+- C. A full operating system and its kernel
+- D. Only the configuration files
+
+**2. What does a virtual machine virtualize?**
+
+- A. The operating system
+- B. Only the network
+- C. Hardware, through a hypervisor
+- D. The application
+
+**3. What do containers share with the host?**
+
+- A. Nothing
+- B. The host's kernel
+- C. The host's processes
+- D. The host's filesystem, unchanged
+
+**4. How long does a container typically take to start?**
+
+- A. Minutes
+- B. Tens of seconds
+- C. Hours
+- D. Milliseconds
+
+**5. How do containers and VMs relate in practice?**
+
+- A. Containers replace VMs everywhere
+- B. They are complementary: containers often run inside VMs
+- C. They cannot run on the same host
+- D. VMs run inside containers
+
+**6. Which component does the real work of building images and running containers?**
+
+- A. The Docker CLI
+- B. Docker Hub
+- C. The kernel's shell
+- D. The Docker daemon, dockerd
+
+**7. Which statement about containers is accurate?**
+
+- A. They are a different mechanism from VMs, based on OS-level isolation
+- B. They are lightweight VMs
+- C. They each include a guest kernel
+- D. They need a hypervisor
+
+**8. Which is a reason Docker became the standard?**
+
+- A. It requires no operating system
+- B. It only runs on Windows
+- C. Portability: one image runs anywhere Docker runs
+- D. It replaces programming languages

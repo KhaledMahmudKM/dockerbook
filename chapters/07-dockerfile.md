@@ -166,3 +166,63 @@ This keeps the context small and prevents secrets (like `.env`) from being copie
 - Each filesystem-changing instruction adds a **layer**; the image is the stack.
 - Docker caches layers and rebuilds from the first change down, so **order instructions least- to most-changed**, dependencies before code.
 - Use a **`.dockerignore`** to keep the build context small and keep secrets out of images.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#building-images-with-a-dockerfile).
+
+**1. In docker build -t myapp:1.0 ., what does the final dot mean?**
+
+- A. The build context is the current directory
+- B. The current image
+- C. Build all Dockerfiles
+- D. Use the latest tag
+
+**2. Which instruction must normally come first in a Dockerfile?**
+
+- A. RUN
+- B. CMD
+- C. FROM
+- D. WORKDIR
+
+**3. Why prefer COPY over ADD?**
+
+- A. COPY is faster
+- B. ADD is deprecated
+- C. COPY compresses files
+- D. COPY is predictable; ADD also fetches URLs and auto-extracts archives
+
+**4. When does a RUN instruction execute?**
+
+- A. Every time a container starts
+- B. While the image is being built
+- C. When the image is pushed
+- D. When the container stops
+
+**5. With ENTRYPOINT ["python", "app.py"] and CMD ["--port", "8000"], what does docker run myapp --port 9000 run?**
+
+- A. python app.py --port 8000
+- B. --port 9000
+- C. python app.py --port 9000
+- D. python --port 9000
+
+**6. What does EXPOSE do?**
+
+- A. Documents which port the app listens on
+- B. Publishes the port to the host
+- C. Opens the firewall
+- D. Starts a web server
+
+**7. Why copy requirements.txt and install dependencies before copying the application code?**
+
+- A. So code edits do not invalidate the cached dependency-install layer
+- B. It is required syntax
+- C. To make the image smaller
+- D. To hide the code
+
+**8. Which instruction switches to a non-root user for following instructions?**
+
+- A. ENV
+- B. LABEL
+- C. USER
+- D. ARG

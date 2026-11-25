@@ -98,3 +98,63 @@ It is a convenient way to see idiomatic files for your language. We write these 
 - Verify with `docker run hello-world`; inspect the setup with `docker version` and `docker info`.
 - On Linux, add your user to the `docker` group to skip `sudo`, understanding that it grants root-equivalent access.
 - `docker init` scaffolds starter Docker files for a project.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#installing-docker).
+
+**1. What do you install on Windows and macOS to run Docker?**
+
+- A. Docker Desktop
+- B. Docker Engine only
+- C. LXC
+- D. Kubernetes
+
+**2. Which backend does Docker Desktop use on Windows?**
+
+- A. Hyper-V only
+- B. VirtualBox
+- C. WSL 2
+- D. Cygwin
+
+**3. For production Linux machines, how should Docker Engine be installed?**
+
+- A. Always with the convenience script
+- B. By compiling from source
+- C. Through Docker Desktop
+- D. From Docker's apt or yum repositories, so upgrades flow through the package manager
+
+**4. What is the traditional first test of a Docker installation?**
+
+- A. docker build .
+- B. docker run hello-world
+- C. docker ps -a
+- D. docker compose up
+
+**5. Which command reports the storage driver and cgroup version?**
+
+- A. docker version
+- B. docker ps
+- C. docker info
+- D. docker logs
+
+**6. Why should you be careful about adding users to the docker group?**
+
+- A. It grants root-equivalent access to the host
+- B. It slows Docker down
+- C. It disables networking
+- D. It removes sudo from the system
+
+**7. What does docker init generate?**
+
+- A. A starter Dockerfile, .dockerignore and compose.yaml for a project
+- B. A new Docker installation
+- C. A registry account
+- D. A Linux VM
+
+**8. How is Docker Desktop updated?**
+
+- A. With apt upgrade
+- B. By reinstalling Windows
+- C. Through its own GUI
+- D. It cannot be updated

@@ -121,3 +121,63 @@ docker system df               # see what Docker is using on disk
 - `docker pull`/`docker images` fetch and list; `docker search` finds images on Docker Hub (prefer official/verified).
 - `docker tag` adds names; `docker history` reveals an image's layers and sizes.
 - `docker rmi` removes images; `docker image prune` reclaims space but deletes, so use it knowingly.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#working-with-images).
+
+**1. What does the short name nginx expand to?**
+
+- A. nginx:stable on GitHub
+- B. registry.nginx.org/nginx
+- C. localhost/nginx:1.0
+- D. docker.io/library/nginx:latest
+
+**2. What does the latest tag mean?**
+
+- A. The newest version, guaranteed
+- B. Just the default tag, pointing to whatever the publisher last tagged latest
+- C. The most popular version
+- D. A security-patched version
+
+**3. Why use a digest instead of a tag?**
+
+- A. Digests are shorter
+- B. Tags are deprecated
+- C. Digests download faster
+- D. A digest is a content hash, so it always refers to exactly the same bytes
+
+**4. What does docker tag do?**
+
+- A. Adds another name to an existing image, copying nothing
+- B. Copies the image
+- C. Uploads the image
+- D. Changes the image's contents
+
+**5. Which command shows an image's layers and the instruction that created each one?**
+
+- A. docker inspect
+- B. docker logs
+- C. docker history
+- D. docker diff
+
+**6. Why can you not remove an image that a container is using?**
+
+- A. Images are permanent
+- B. Docker Hub must approve it
+- C. Only root can remove images
+- D. The container depends on its layers; remove the container first
+
+**7. What is a dangling image?**
+
+- A. An image with a vulnerability
+- B. An untagged image, often left over from rebuilds
+- C. An image being pulled
+- D. A private image
+
+**8. Which images should you prefer from Docker Hub?**
+
+- A. The ones with the most tags
+- B. Any community image
+- C. Official images and verified publishers
+- D. The smallest ones, always

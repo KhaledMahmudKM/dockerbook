@@ -99,3 +99,63 @@ This is why changes made *inside* a running container (an edited file, an instal
 - Images come from **registries** (Docker Hub by default) and are cached locally after the first pull.
 - `docker run` flows CLI → `dockerd` → `containerd` → `runc`, which uses kernel namespaces and cgroups to start the process.
 - Treat images as immutable artifacts and containers as disposable; durable data belongs in images or volumes.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#images-and-containers).
+
+**1. What is an image?**
+
+- A. A running process
+- B. A read-only template: a packaged filesystem plus metadata on how to run it
+- C. A virtual machine
+- D. A network
+
+**2. What is a container, relative to an image?**
+
+- A. A copy of the image file
+- B. A compressed image
+- C. A running or stopped instance of the image, with its own writable layer
+- D. A registry
+
+**3. What is Docker Hub?**
+
+- A. The default public registry
+- B. A container runtime
+- C. A build tool
+- D. A network driver
+
+**4. What happens the first time you run an image you do not have locally?**
+
+- A. Docker pulls it from the registry and caches it
+- B. Docker fails
+- C. Docker builds it from source
+- D. Docker asks for a Dockerfile
+
+**5. In the docker run flow, which component creates the namespaces and cgroups and starts the process?**
+
+- A. dockerd
+- B. containerd
+- C. runc
+- D. The CLI
+
+**6. Why does a small shim process stay behind as the container's parent?**
+
+- A. To log commands
+- B. So the container keeps running even if the daemon restarts
+- C. To pull images
+- D. To publish ports
+
+**7. You install a package inside a running container, then remove the container. What happens to the package?**
+
+- A. It is saved in the image
+- B. It moves to Docker Hub
+- C. It is kept in a volume automatically
+- D. It is lost with the container's writable layer
+
+**8. What does 'cattle, not pets' mean for containers?**
+
+- A. Containers should be named carefully
+- B. Containers are disposable: replace a misbehaving one instead of repairing it
+- C. Containers must never be deleted
+- D. Each container needs its own image

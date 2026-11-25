@@ -43,7 +43,7 @@ You should be comfortable with the command line and basic system concepts (proce
 
 ## How to Read It
 
-Part I builds the mental model, including a chapter on the kernel technology behind containers, so read it in order the first time. Parts II and III are more reference-like; jump to the topic you need from the sidebar. The appendix collects the important commands into tables you can scan while you work.
+Part I builds the mental model, including a chapter on the kernel technology behind containers, so read it in order the first time. Parts II and III are more reference-like; jump to the topic you need from the sidebar. The appendix collects the important commands into tables you can scan while you work. Each chapter ends with **Check your understanding**, eight multiple-choice questions; the **Answers to Chapter Questions** chapter, after the Glossary, gives every answer with a short explanation.
 
 > **Convention.** Commands are shown for a terminal with Docker installed. On Linux you may need `sudo` unless your user is in the `docker` group; Windows and macOS users run the same commands inside Docker Desktop's terminal.
 

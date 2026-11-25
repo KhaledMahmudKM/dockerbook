@@ -149,3 +149,63 @@ HEALTHCHECK --interval=30s --timeout=3s \
 - Order layers for caching and combine `RUN` steps to keep images small and builds fast.
 - Never bake secrets into images; run as **non-root**; use a `.dockerignore`.
 - Run one process per container, add healthchecks, and scan images for vulnerabilities.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#best-practices).
+
+**1. Which base image is the better choice for a Python app?**
+
+- A. python:latest
+- B. python:3.12-slim
+- C. ubuntu:latest with Python installed by hand
+- D. Any community Python image
+
+**2. What is a distroless image?**
+
+- A. An image with no files
+- B. An image for Windows
+- C. An image with just the app and its runtime, without a shell or package manager
+- D. An image without layers
+
+**3. What does a multi-stage build achieve?**
+
+- A. Builds with a heavy toolchain in one stage and ships only the finished artifact in a clean final stage
+- B. Builds several apps at once
+- C. Runs containers in stages
+- D. Splits an image across registries
+
+**4. Why clean the apt cache in the same RUN that installs packages?**
+
+- A. Otherwise the cache stays in an earlier layer and still adds to the image size
+- B. It is faster
+- C. apt requires it
+- D. To avoid a build error
+
+**5. A Dockerfile copies .env, and a later RUN deletes it. Is the secret safe?**
+
+- A. Yes, it was deleted
+- B. Yes, if the image is private
+- C. No, it remains in the earlier layer and can be extracted
+- D. Only if the image is scanned
+
+**6. What is the purpose of .dockerignore?**
+
+- A. To ignore errors
+- B. To stop a broad COPY . . from sweeping in files such as .env, .git or keys
+- C. To skip layers
+- D. To hide containers
+
+**7. Why run the container's process as a non-root user?**
+
+- A. Root is slower
+- B. Non-root users get more memory
+- C. Docker forbids root
+- D. It reduces the damage if the container is compromised
+
+**8. Why put one main process in each container?**
+
+- A. Docker allows only one
+- B. It keeps images small, scaling independent, logs clean and failures isolated
+- C. It saves disk space only
+- D. It is faster to build

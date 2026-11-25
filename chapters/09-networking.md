@@ -116,3 +116,63 @@ A container can be attached to several networks at once, a pattern used to separ
 - Publish ports with `-p HOST:CONTAINER` to reach a container from outside Docker; `EXPOSE` only documents.
 - `-p` binds all interfaces by default: use `-p 127.0.0.1:8080:80` to keep a service host-only.
 - Drivers: `bridge` (default), `host` (no isolation), `none` (none), plus `overlay`/`macvlan` for advanced cases.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#networking).
+
+**1. How can containers on the default bridge network reach each other?**
+
+- A. Only by IP address, since there is no name resolution
+- B. By container name
+- C. They cannot
+- D. Only through the host's LAN
+
+**2. What do containers gain on a user-defined bridge network?**
+
+- A. Public IP addresses
+- B. Faster CPUs
+- C. Automatic DNS, so they reach each other by container name
+- D. Encryption
+
+**3. By default, which host interfaces does -p 8080:80 bind to?**
+
+- A. Only localhost
+- B. All host interfaces, so other machines can reach it
+- C. None
+- D. Only the Docker bridge
+
+**4. Does EXPOSE in a Dockerfile publish a port?**
+
+- A. Yes, to all interfaces
+- B. Yes, to localhost
+- C. Only in Compose
+- D. No, it only documents it
+
+**5. Which network driver makes a container share the host's network stack directly?**
+
+- A. bridge
+- B. host
+- C. none
+- D. overlay
+
+**6. Which driver spans multiple hosts?**
+
+- A. bridge
+- B. macvlan
+- C. none
+- D. overlay
+
+**7. Which driver gives a container its own MAC and IP address on the physical LAN?**
+
+- A. macvlan
+- B. host
+- C. bridge
+- D. none
+
+**8. Why is reaching a database by name better than by IP address?**
+
+- A. Names are shorter
+- B. IP addresses are not allowed
+- C. Containers can restart with new IPs, while the name keeps working
+- D. DNS is faster than IP

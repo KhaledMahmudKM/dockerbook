@@ -143,3 +143,63 @@ On Docker Desktop, restart Docker Desktop and check its dashboard. "Cannot conne
 - "Port already allocated" and image-pull errors have quick, specific fixes.
 - Cap containers with `--memory` and `--cpus`; check `OOMKilled` when memory is suspect.
 - Use `docker system df` then **targeted** `prune` commands. The `-a --volumes` forms delete images and data, so use them knowingly.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#troubleshooting-and-cleanup).
+
+**1. Which commands answer most 'why isn't this working?' questions first?**
+
+- A. docker ps -a, docker logs and docker inspect
+- B. docker build and docker push
+- C. docker pull and docker tag
+- D. docker system prune
+
+**2. What does the status Exited (0) mean?**
+
+- A. The container crashed
+- B. The container is paused
+- C. The main process finished normally
+- D. The image is missing
+
+**3. Why does docker run ubuntu exit immediately?**
+
+- A. The image is broken
+- B. Its main process, bash, has no terminal and nothing to do, and a container runs only as long as its main process
+- C. Ubuntu is not supported
+- D. It needs sudo
+
+**4. A pull fails with 'manifest unknown'. What is the likely cause?**
+
+- A. The image is private
+- B. The network is down
+- C. Docker Hub is full
+- D. The tag does not exist
+
+**5. How can you tell a container was killed for using too much memory?**
+
+- A. docker logs shows OOM
+- B. docker inspect shows OOMKilled: true
+- C. The image grows
+- D. docker ps shows Paused
+
+**6. What does --memory=256m do?**
+
+- A. Reserves disk space
+- B. Speeds up the container
+- C. Sets the image size
+- D. Caps the container's RAM through cgroups, and the kernel kills it if it exceeds the cap
+
+**7. Which command shows what is using Docker's disk space before you prune?**
+
+- A. docker system df
+- B. docker ps
+- C. docker images -q
+- D. docker info
+
+**8. Which prune command can delete volumes whose data you may want?**
+
+- A. docker container prune
+- B. docker image prune
+- C. docker system prune -a --volumes
+- D. docker builder prune

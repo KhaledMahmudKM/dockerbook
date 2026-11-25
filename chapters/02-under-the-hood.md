@@ -175,3 +175,63 @@ A container, precisely, is: **a group of processes** (namespaces give them an is
 - A **union/overlay filesystem** gives a container a stack of read-only image layers plus a writable layer, with **copy-on-write**.
 - LXC first combined these; Docker used LXC, then libcontainer, now `runc`/OCI, but the primitives are unchanged.
 - Because containers share the host kernel, Linux containers need Linux, hence the hidden VM on Windows and macOS.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#under-the-hood-the-technology-behind-containers).
+
+**1. Which three kernel features make up a container?**
+
+- A. Hypervisor, BIOS, drivers
+- B. SELinux, AppArmor, iptables
+- C. Swap, cron and systemd
+- D. Namespaces, cgroups and a union filesystem
+
+**2. Which namespace gives a container its own process tree, with its first process as PID 1?**
+
+- A. NET
+- B. PID
+- C. MNT
+- D. UTS
+
+**3. Which namespace lets a container have its own hostname?**
+
+- A. IPC
+- B. USER
+- C. PID
+- D. UTS
+
+**4. What do cgroups do?**
+
+- A. Limit and account for resources such as CPU, memory, I/O and number of processes
+- B. Hide other processes
+- C. Encrypt the filesystem
+- D. Assign IP addresses
+
+**5. A container writes to a file that lives in a read-only image layer. What happens?**
+
+- A. The write fails
+- B. The image layer is modified
+- C. The file is copied up into the container's writable layer and changed there
+- D. A new image is created
+
+**6. Why do ten containers from one image use little extra disk?**
+
+- A. They are compressed
+- B. Docker deletes duplicates
+- C. They store nothing
+- D. They share the read-only image layers; only their thin writable layers differ
+
+**7. Which tool was the first widely used userspace tooling to combine namespaces and cgroups, and Docker's original engine?**
+
+- A. runc
+- B. LXC
+- C. containerd
+- D. KVM
+
+**8. Why does Docker on Windows and macOS run a small Linux VM?**
+
+- A. For security only
+- B. To speed up networking
+- C. Linux containers share the host kernel, so they need a Linux kernel
+- D. Docker is written for Linux only
